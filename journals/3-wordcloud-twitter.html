@@ -6,35 +6,35 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dwi - Digitalization Helper</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/d-logo.svg" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/d-logo.svg" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a href="index.html"><img class="navbar-brand" src="assets/img/d-logo.svg" alt="Dwi" /></a>
+                <a href="../index.html"><img class="navbar-brand" src="../assets/img/d-logo.svg" alt="Dwi" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/posts/3-wc-tw-bg.jpg')">
+        <header class="masthead" style="background-image: url('../assets/posts/3-wc-tw-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -43,7 +43,7 @@
                             <h2 class="subheading">How to obtain competitor tweets & display it nicely using wordcloud</h2>
                             <span class="meta">
                                 Posted by
-                                <a href="index.html">Dwi Hadyan Harsono</a>
+                                <a href="../index.html">Dwi Hadyan Harsono</a>
                                 on July 17, 2021
                             </span>
                         </div>
@@ -66,7 +66,7 @@
                         <!-- p2 -->
                         <h2 class="section-heading">Obtain</h2>
                         <p>We've obtained the data from twitter API. need to get the token first <a href="https://developer.twitter.com/en/docs/authentication/oauth-2-0/bearer-tokens#:~:text=Login%20to%20your%20Twitter%20account,Generate%22%20next%20to%20Bearer%20Token." >here</a>.</p>
-                        <a href="#!"><img class="img-fluid" src="assets/posts/3-wc-tw-obtain.jpg" alt="..." /></a>
+                        <img class="img-fluid" src="../assets/posts/3-wc-tw-obtain.jpg" alt="..." />
                         <p>Firstly, you must know which part of data do you want to get from twitter (retweeets, like, tweets, etc), then you go to their github to get the code boilerplate <a href="https://github.com/twitterdev/Twitter-API-v2-sample-code">here</a> (thanks twitter devs!). We will be analysing few biggest retail players in indonesia. Ace, shopee, tokopedia, transmart by getting their raw tweets</p>
 
                         <!-- p3 -->
@@ -75,12 +75,12 @@
 
                         <!-- p4 -->
                         <h2 class="section-heading">Explore</h2>
-                        <a href="#!"><img class="img-fluid" src="assets/posts/3-wc-tw-explore.png" alt="..." /></a>
+                        <img class="img-fluid" src="../assets/posts/3-wc-tw-explore.png" alt="..." />
                         <p>Have a quick overview on what's the data remains using quick wordcount. we noticed that most of remains are stopwords that makes a meaning only if its a sentence</p>
 
                         <!-- p5 -->
                         <h2 class="section-heading">Model</h2>
-                        <a href="#!"><img class="img-fluid" src="assets/posts/3-wc-tw-model.png" alt="..." /></a>
+                        <img class="img-fluid" src="../assets/posts/3-wc-tw-model.png" alt="..." />
                         <p>Still out of curiousity, we still proceed to see wordcloud by using function 'wordcloud_generator' we created</p>
 
                         <!-- p6 -->
