@@ -34,13 +34,13 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('../assets/posts/post-bg.jpg')">
+        <header class="masthead" style="background-image: url('../assets/posts/4-mining-tw-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>(Not-so) Naive Way to Analyse Competitor using Orange Data Mining Toolkit</h1>
-                            <h2 class="subheading">Mine Competitors twitter data using Data Miner Toolkit</h2>
+                            <h1>(Not-so) Naive Way to Analyse Competitor using Orange</h1>
+                            <h2 class="subheading">Mine Competitors twitter data using Orange : Open-Source Data Miner Toolkit</h2>
                             <span class="meta">
                                 Posted by
                                 <a href="../index.html">Dwi Hadyan Harsono</a>
@@ -56,28 +56,94 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
-                        <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
-                        <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
-                        <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
-                        <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
-                        <h2 class="section-heading">The Final Frontier</h2>
-                        <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                        <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                        <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-                        <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-                        <h2 class="section-heading">Reaching for the Stars</h2>
-                        <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-                        <img class="img-fluid" src="../assets/posts/post-sample-image.jpg" alt="..." />
-                        <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-                        <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-                        <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-                        <p>
-                            Placeholder text by
-                            <a href="http://spaceipsum.com/">Space Ipsum</a>
-                            &middot; Images by
-                            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
-                        </p>
+                        <blockquote class="blockquote">TLDR : You can get lost easily in twitter data mining, so you have to be VERY SPECIFIC on what you trying to find out before you even begin diving.</blockquote>
+                        <blockquote class="blockquote"> Here, we use tweets from 4 big retail players in indonesia, input them 'orange data mining' toolkit, and output wordcloud (common keywords & hashtags they used to make them stands out), 10 topics in general from those tweets (sentence version of wordcloud, to learn what are they talking about), and sentiment analysis on those tweets (we can see their customers positive & negative feedbacks, and how can we learn from them).</blockquote>
+                        <!-- p1 -->
+                        <h2 class="section-heading">Scenario</h2>
+                        <p>Following up from my previous <a href="https://dwihdyn.github.io/3-wordcloud-twitter.html">journal</a>, i've digging around ways on how can we properly mine twitter data, and this is when i discovered 'Orange Data Mining'.</p>
+                        <p> Watched few videos on <a href="https://www.youtube.com/watch?v=HDkI6G4slzQ">data analysis</a> & <a href="https://www.youtube.com/watch?v=7Fnli0wc11g">sentiment analysis</a>, looks fun. but that one beautiful word that hook me up for good. <b>open-source</b>. i'm sold.</p>
+
+
+                        <!-- p1.1 -->
+                        <h2 class="section-heading">Prerequisite</h2>
+                        <p>Just like cooking, you need to get the ingredients & the proper cooking tools before we start, hence below the ingredients you must get & tools you must download:</p>
+                        <ul>
+                            <li><a href="https://www.python.org/downloads/">Python3</a> (or just get whole Anaconda)</li>
+                            <li><a href="https://developer.twitter.com/en/docs/authentication/oauth-2-0/bearer-tokens#:~:text=Login%20to%20your%20Twitter%20account,Generate%22%20next%20to%20Bearer%20Token.">Twitter API token</a></li>
+                            <li><a href="https://orangedatamining.com/download">Orange Data Miner</a> (duh) + <a href="https://drmarketing.expert/2018/04/09/6-steps-to-link-orange-3-and-twitter-api/">setting up the twitter widgets</a></li>
+                        </ul>
+                        <p>Now we have all ingredients, let's cook some data with our usual OSEMN step-by-step cookbook!</p>
+
+                        <!-- p2 -->
+                        <h2 class="section-heading">Obtain</h2>
+                        <p>Open 'twitter' widget and enter the twitter API & users you wanna get the data. here we getting 4 big retail players in indonesia</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-obtain1.png" alt="..." />
+                        <p>Once you got it, open 'corpus viewer' to see the overview of the data. press ctrl + a, and click 'content' in 'display feature' to see the clean content of the tweets you just obtained.</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-obtain2.png" alt="..." />
+
+                        <!-- p3 -->
+                        <h2 class="section-heading">Scrub</h2>
+                        <p>'Insert widget' from twitter to make sure we get the data from what we obtained, and open 'preprocess text' widget and follow the setup in the image below.</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-scrub1.png" alt="..." />
+                        <p>For indonesian stopword, you can get the data <a href="https://raw.githubusercontent.com/dwihdyn/ds-exploration/main/p3/data/stopwords-indo.txt">here</a> and copy & paste it in your empty .txt file and load it inside orange</p>
+
+                        <!-- p4 -->
+                        <h2 class="section-heading">Explore</h2>
+                        <p>'Insert widget' from 'preprocess text' and open 'wordcloud', and you will get this output. (pull the 'words tilt' to max and come back zero to get all data)</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-expore1.png" alt="..." />
+                        <p>I know, just like i mentioned in previous article that breaking down tweet into words are just return word with no meaning.</p>
+                        <p>Since twitter was the father of hashtags, we will look into interesting hashtags. here, lets look at #ppkm (lockdown in indonesian). and we can further analyse it by click at #ppkm, and open 'corpus viewer' widget.</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-explore2.png" alt="..." />
+                        <p>Turns out, we can see that only acehardware uses this hashtag, and promotes on ice cream walls, massage machine, and upselling their delivery service due to lockdown</p>
+
+                        <!-- p5 -->
+                        <h2 class="section-heading">Model</h2>
+                        <p>We'll be having 2 kinds of modelling. topic modelling & sentiment score</p>
+
+                        <!-- p5.1  -->
+                        <h4 class="section-heading">Topic Modelling</h4>
+                        <p>In layman term, topic modelling is when we take all of these many words and try to group them together. here we group it to 10 different topics in general, which we can see result below</p>
+                        <p>For techies & interested readers, we will be using 'Latent Dirichlet allocation' model</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model1.png" alt="..." />
+                        <p>We can see each of those 10 topics of the orignial tweets by using heatmap, and group it together by topics, result below</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model2.png" alt="..." />
+                        <p>Click particular root, and see each tweets in 'corpus viewer'</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model3.png" alt="..." />
+
+                        <br/>
+                        <!-- p5.2  -->
+                        <h4 class="section-heading">Sentiment Score</h4>
+                        <p>Next is sentiment score of each tweets. layman term, is to convert the tweets to numerical between -1 to +1, where -1 is negative tweet (eg : 'this place is sucks') and vise versa (+1 for tweets 'this place is wonderful'). You can follow the setting below</p>
+                        <p>For techies & interested readers, we will be using 'Vader' model</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model4.png" alt="..." />
+                        <p>For begineers, you can start with 'Data Table' widget to display the data, scroll to the end, and click 'compound' column to sort the score. (compound is the overall sentiment of each given tweets)</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model5.png" alt="..." />
+                        <p>For intermediate, you use heatmap (same as topic modelling), group it together by topics, result below</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model6.png" alt="..." />
+                        <p>and click particular root, and see each tweets in 'corpus viewer'</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-model7.png" alt="..." />
+
+                        <!-- p6 -->
+                        <h2 class="section-heading">iNterpret</h2>
+                        <p>We can draw conclusions from all 'heatmaps' (or data tables) & 'corpus viewers'. and let us show you how our 'tree' look like & parts they play in OSEMN.</p>
+                        <img class="img-fluid" src="../assets/posts/4-mining-tw-interpret1.png" alt="..." />
+                        <p>Wordcloud :</p>
+                        <ul>
+                            <li>All users leverage hashtag on either current event hapening (#ppkm lockdown & merdeka independence day), their collab (tokopedia with bts), or their own corporate hashtag (acesemangataktivitassetiaphari, keluargatransmart, belisemuadishopee)</li>
+                            <li>#ppkm : we can see that only acehardware uses this hashtag, and promotes on ice cream walls, massage machine, and upselling their delivery service due to lockdown</li>
+                            <li>We can explore in-depth too on #merdeka and each of the corporate hashtag</li>
+                            <li>Other than that, the tweets are very 'conversational', might consider update more stopwords, but if update it result to 90% data gone, we might need to get tweets by 'context' lookup, rather than 'user' lookup</li>
+                        </ul>
+                        <p>For Topic modelling & Sentiment Score. you really need to know exactly what are you trying to find out.</p>
+
+
+                        <!-- p7 -->
+                        <h2 class="section-heading">Final words from Dwi</h2>
+                        <p>I couldn't emphasise more on this, in twitter data mining, you REALLY need to be very specific on what exacly are we trying to find out. As there is SO MUCH data, which we can get lost easily. <b>either you will devour these data, or the data will devour you</b></p>
+                        <p>For beginners to really abe to digest the usefulness of 'topic modelling', find english topics that is easy to interpreted in 'topic modelling' (eg : #machinelearning give out pretty clean results)</p>
+                        <p>Of course, you can download the analysis I made <a href="https://github.com/dwihdyn/ds-exploration/blob/main/p5/indoretail-comp-analysis.ows">here</a> and open it in your orange. You will see an error message from the heatplot part. so please take a breath, dont panic, and read the error message slowly, and google what you want to fix</p>
+
+
                     </div>
                 </div>
             </div>
