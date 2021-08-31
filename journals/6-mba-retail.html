@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dwi - Digitalization Helper</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/d-logo.svg" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a href="../index.html"><img class="navbar-brand" src="../assets/img/d-logo.svg" alt="Dwi" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/posts/6-mba-retail-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Social Engineering meets Data Science in Retail</h1>
+                            <h2 class="subheading">Given our customer historical orders, how can we pair up certain correlated products in order to increase sales ?</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="../index.html">Dwi Hadyan Harsono</a>
+                                on Sep 1, 2021
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <blockquote class="blockquote">TLDR; utilize numpy hidden hacks more often (which here is, WAY faster loop) , and replace all for-loop to .apply() for good habit.</blockquote>
+                        
+                        <br/>
+
+                        <!-- p0 -->
+                        <p>This article will be divided into 3 segments :</p>
+                        <ol>
+                            <li>Scenario : The problem statement</li>
+                            <li>Result : How are we tackling the problem ?</li>
+                            <li>Call-To-Action : What's the solution of the problem ?</li>
+                        </ol>
+
+                        <!-- p1 -->
+                        <h2 class="section-heading">Scenario</h2>
+                        <p>One of biggest reason why we pick up python for data analysis is because excel can't handle large dataset (i mean, excel can, but if your manager is under your neck and need answer ASAP, just loading the data takes hours, let alone analysing it).</p>
+                        <p>We'll be discussing on for-loops only, it's good for small size data, but if its large, it will take long time too.</p>
+                        <p>Hence, given a dataset of different locations latitude & longitude of 1000+ locations, we'll calculate the distance between where we are now to these different locations, and store the result in the dataframe.</p>
+                        <img class="img-fluid" src="../assets/posts/5-better-loop-scenario1.jpg" alt="..." />
+                        <p>Here, we'll show the time taken to use basic for-loop, and we show how can we improve them drastically.  Below the sneak-peek of the data</p>
+                        <img class="img-fluid" src="../assets/posts/5-better-loop-scenario-df.png" alt="..." />
+
+                        <!-- p2 -->
+                        <h2 class="section-heading">Result</h2>
+                        <blockquote class="blockquote">Heads up that i will be deliberately posting the code image, so that you won't be copy pasting. type it out along as it helps to train your muscle memory!</blockquote>
+                        <p>Below is the code on how are we calculating distance from where we are to the locations in the dataset</p>
+                        <img class="img-fluid" src="../assets/posts/5-better-loops-result1.png" alt="..." />
+                        <br/>
+                        <p>We'll be introducing 5 different kind of ways to solve this problem, from slowest to fastest.</p>
+                        <ol>
+                            <li>Basic looping</li>
+                            <ul>
+                                <li>Speed : 260 ms ± 1.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)</li>
+                                <p>We'll be creating new column in the dataframe, and populate it using basic for-loop, shown the speed of it too</p>
+                                <img class="img-fluid" src="../assets/posts/5-better-loops-result2.png" alt="..." />
+                            </ul>
+                            <br/>
+
+                            <li>Loop using .iterrows()</li>
+                            <ul>
+                                <li>Speed : 91.1 ms ± 12.3 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</li>
+                                <p>We'll be populating results inside new empty list, then create new column in dataframe & set them in. speed shown too.</p>
+                                <img class="img-fluid" src="../assets/posts/5-better-loops-result3.png" alt="..." />
+                            </ul>
+                            <br/>
+
+                            <li>Loop using .apply()</li>
+                            <ul>
+                                <li>Speed : 40.5 ms ± 3.56 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</li>
+                                <p>In short, it's basic for-loop, BUT using lambda instead & directly assign it to the newly-created column in the dataframe</p>
+                                <img class="img-fluid" src="../assets/posts/5-better-loops-result4.png" alt="..." />
+                                <p>Footnote on this one is that, the structure of this is relatively closest to basic for-loop, and yet is much faster. i'd recommend for you to start replacing all for-loop and using this .apply() instead</p>
+                            </ul>
+                            <br/>
+
+                            <li>Vectorization with pandas series</li>
+                            <ul>
+                                <li>Speed : 1.89 ms ± 236 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)</li>
+                                <p>Oversimplifying it, when you see vectorization, think 'multiplication of two variables, with a twist'</p>
+                                <p>The idea behind here is explained in picture below. As we can noticed, that we can actually achieve this by 'replacing' loop entirely, and using vectorization concept.</p>
+                                <img class="img-fluid" src="../assets/posts/5-better-loops-result5.png" alt="..." />
+                                <p>Below is the code & the speed of result</p>
+                                <img class="img-fluid" src="../assets/posts/5-better-loops-result6.png" alt="..." />
+                            </ul>
+                            <br/>
+
+                            <li>Vectorizaton using numpy arrays</li>
+                            <ul>
+                                <li>Speed : 354 µs ± 6.49 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</li>
+                                <p>Here, it's using pandas series, BUT we specificall for .values only, hence faster (converting from dataframe to array indirectly)</p>
+                                <img class="img-fluid" src="../assets/posts/5-better-loops-result7.png" alt="..." />
+                            </ul>
+                            <br/>
+
+                        </ol>
+
+
+
+
+
+                        <!-- p3 -->
+                        <h2 class="section-heading">Call-To-Action</h2>
+                        <p>Looking at the speed of each, we can see that using numpy array is the best to make 'loop' faster, that it process 649x faster than normal loop! (230ms / 0.354ms)</p>
+                        <p>In any of your future looping problem, consider putting those values inside numpy array (or pandas series), do this, and convert it back to whatever format you originally need (or don't, because numpy & pandas might've got your back already. look up their capabilities before forgetting them!)</p>
+                        <p>In short, we use 'numpy vectorization' concept in order to handle loop-problems that involves large datasets </p>
+
+
+
+
+
+
+                        <!-- p7 -->
+                        <h2 class="section-heading">Final words from Dwi</h2>
+                        <p>You can find the codes <a href="https://github.com/dwihdyn/ds-exploration/blob/main/p5/better-loops.ipynb">here</a>.</p>
+                        <p>Explore numpy more, and replace all for-loop to .apply() for good habit (and faster code)</p>
+
+        
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dwihdyn">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/dwi-hadyan-harsono-268009128/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.tilabs.id">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="far fa-building fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Dwi Hadyan Harsono</div>      
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
