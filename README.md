@@ -2,7 +2,7 @@
 
 ## How to add new blogpost ?
 
-1. duplicate 5-better-loop.html inside 'journal' folder
+1. duplicate 6-mba-retail.html inside 'journal' folder
 2. write your blog
 3. update images in https://unsplash.com/
 4. Go to index.html -> copy paste one whole divider & add post preview info
