@@ -93,53 +93,97 @@
       
                         <!-- p2 -->
                         <h2 class="section-heading">Result</h2>
-                        <blockquote class="blockquote">Heads up that i will be deliberately posting the code image, so that you won't be copy pasting. type it out along as it helps to train your muscle memory!</blockquote>
-                        <p>Below is the code on how are we calculating distance from where we are to the locations in the dataset</p>
-                        <img class="img-fluid" src="../assets/posts/5-better-loops-result1.png" alt="..." />
+                        <p>Translating from those two business requirements to technical requirements, we can answer those questions by using <a href="https://towardsdatascience.com/a-gentle-introduction-on-market-basket-analysis-association-rules-fa4b986a40ce">Market Basket Analysis - Association Rule</a>.</p>
+                        <p>Oversimplifying it, what it does is that, with each order data that contains products that has been purchased, we can see the occurences of particular item A & B happen on every order. If its happen very often, we can conclude that these two products are come in pairs, and what management can do to encourage this to happen more is to put these two item side-by-side.</p>
+                        <p>Below is the simulation with the smaller dataset in order to understand "Associate Rules" intuitively</p>
+                        <img class="img-fluid" src="../assets/posts/6-mba-retail-result1.png" alt="..." />
+                        <p>With above example, we can put apple & egg side-by-side in order to trigger the customer impulsive buying. you can read in-depth analysis & its formal answers <a href="https://www.kaggle.com/datatheque/association-rules-mining-market-basket-analysis">here</a>.</p>
+                        <p>With that being said, let's solve this problem with our favourite OSEMN framework!</p>
+                        
                         <br/>
-                        <p>We'll be introducing 5 different kind of ways to solve this problem, from slowest to fastest.</p>
+                        
                         <ol>
-                            <li>Basic looping</li>
+                            <!-- p2.1  -->
+                            <li>Obtain</li>                            
+                            <p>Data is given & shown sneak-peek in 'Scenario' section</p>
+                            <br/>
+
+                            <!-- p2.2  -->
+                            <li>Scrub</li>
+                            
+                            <p>Since we want to know two things (which depts are the best pairs, and which products are the best pairs), we just need to prepare two dataframes such that it is suitable for our 'Association Rule' derivation (which is order_id and item_id). Below are the sneak-peek of each of the dataframes.</p>
+
+                            <p>Data Prep : depts are the best pairs</p>
+                            <img class="img-fluid" src="../assets/posts/6-mba-retail-result2.png" alt="..." />
+                            <p>---------------------------</p>
+                            <p>Data Prep : products are the best pairs</p>
+                            <img class="img-fluid" src="../assets/posts/6-mba-retail-result3.png" alt="..." />
+                            
+                            <p>To make things simple, we've created function to get Association Rule derivation, we rename both targeted column to item_id. (no more product_id or dept_id)</p>
+                            <br/>
+
+                            <!-- p2.3  -->
+                            <li>Explore</li>
+                            <p>We've skipped entirely this part, as deriving 'Association Rule' on 3 million+ rows dataset is computationally expensive (nearly consumed 16GB of RAM)</p>
+                            <img class="img-fluid" src="../assets/posts/6-mba-retail-result-explore-skip.jpg" alt="..." />
+                            <br/>
+
+                            <!-- p2.4  -->
+                            <br/>
+                            <li>Model</li>
+                            <p>This is the part where we implement the Association Rules function. You can check out the full code in <a href="https://www.kaggle.com/dwihdyn/mkt-bskt-analysis">my kaggle</a>, but oversimplifying it:</p>
                             <ul>
-                                <li>Speed : 260 ms ± 1.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)</li>
-                                <p>We'll be creating new column in the dataframe, and populate it using basic for-loop, shown the speed of it too</p>
-                                <img class="img-fluid" src="../assets/posts/5-better-loops-result2.png" alt="..." />
+                                <li>What we want is to calculate each pair of items relationships (lift value). say we have item A & B.</li>
+                                <ul>
+                                    <li>if lift > 1, A & B occur together more often than random</li>
+                                    <li>if lift = 1, A & B occur together only by chance (random)</li>
+                                    <li>if lift < 1, A & B occur together less often than random</li>
+                                </ul>
+                                
+                                <li>Calculate lift(A,B) = Pr(A & B bought together) / (Pr(A bought) * Pr(B bought))</li>
+                                <ul>
+                                    <li>where Pr(A bought) : Probability item A is bought</li>
+                                </ul>
+                                
+                                <br/>
+                                <li>Below is the result of best <b>department</b> pair & sort from highest lift value to lowest</li>
+                                <img class="img-fluid" src="../assets/posts/6-mba-retail-result4.png" alt="..." />
+
+                                <br/>
+                                <br/>
+
+                                <li>And for each <b>product</b> pairs</li>
+                                <img class="img-fluid" src="../assets/posts/6-mba-retail-result5.png" alt="..." />
+
+
+
+
+
+
                             </ul>
                             <br/>
 
-                            <li>Loop using .iterrows()</li>
+                            <!-- p2.5  -->
+                            <li>iNterpret</li>
                             <ul>
-                                <li>Speed : 91.1 ms ± 12.3 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</li>
-                                <p>We'll be populating results inside new empty list, then create new column in dataframe & set them in. speed shown too.</p>
-                                <img class="img-fluid" src="../assets/posts/5-better-loops-result3.png" alt="..." />
-                            </ul>
-                            <br/>
+                                <li>From department dataframe, we can put these 5 top dept side by side, as coincidentally, it circes back (other, alcohol, pets, household, personal care)</li>
+                                
+                                <li>From Product table</li>
+                                <ul>
+                                    <li>Top association characterics were, with one flavor of an item being purchased with another flavor from the SAME ITEM FAMILY</li>
+                                    <ul>
+                                        <li>Strawberry chia COTTAGE CHEESE & Blueberry acai COTTAGE CHEESE</li>
+                                        <li>Chicken CAT FOOD & Turkey CAT FOOD</li>
+                                    </ul>
 
-                            <li>Loop using .apply()</li>
-                            <ul>
-                                <li>Speed : 40.5 ms ± 3.56 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</li>
-                                <p>In short, it's basic for-loop, BUT using lambda instead & directly assign it to the newly-created column in the dataframe</p>
-                                <img class="img-fluid" src="../assets/posts/5-better-loops-result4.png" alt="..." />
-                                <p>Footnote on this one is that, the structure of this is relatively closest to basic for-loop, and yet is much faster. i'd recommend for you to start replacing all for-loop and using this .apply() instead</p>
-                            </ul>
-                            <br/>
-
-                            <li>Vectorization with pandas series</li>
-                            <ul>
-                                <li>Speed : 1.89 ms ± 236 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)</li>
-                                <p>Oversimplifying it, when you see vectorization, think 'multiplication of two variables, with a twist'</p>
-                                <p>The idea behind here is explained in picture below. As we can noticed, that we can actually achieve this by 'replacing' loop entirely, and using vectorization concept.</p>
-                                <img class="img-fluid" src="../assets/posts/5-better-loops-result5.png" alt="..." />
-                                <p>Below is the code & the speed of result</p>
-                                <img class="img-fluid" src="../assets/posts/5-better-loops-result6.png" alt="..." />
-                            </ul>
-                            <br/>
-
-                            <li>Vectorizaton using numpy arrays</li>
-                            <ul>
-                                <li>Speed : 354 µs ± 6.49 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</li>
-                                <p>Here, it's using pandas series, BUT we specificall for .values only, hence faster (converting from dataframe to array indirectly)</p>
-                                <img class="img-fluid" src="../assets/posts/5-better-loops-result7.png" alt="..." />
+                                    <li>This can be implemented in "Recommended system" backend. (eg if cust buy chicken cat food, recommend them turkey cat food too)</li>
+                                </ul>
+                                
+                                <li>General solution that we can give to management ?</li>
+                                <ul>
+                                    <li>Get lift > 1 dept, and put dept rows side-by-side</li>
+                                    <li>For each items in dept, Get lift > 1 products, and put it together accordingly (and share these pairings to marketing team to create 'pair discount'</li>
+                                </ul>
                             </ul>
                             <br/>
 
@@ -151,19 +195,18 @@
 
                         <!-- p3 -->
                         <h2 class="section-heading">Call-To-Action</h2>
-                        <p>Looking at the speed of each, we can see that using numpy array is the best to make 'loop' faster, that it process 649x faster than normal loop! (230ms / 0.354ms)</p>
-                        <p>In any of your future looping problem, consider putting those values inside numpy array (or pandas series), do this, and convert it back to whatever format you originally need (or don't, because numpy & pandas might've got your back already. look up their capabilities before forgetting them!)</p>
-                        <p>In short, we use 'numpy vectorization' concept in order to handle loop-problems that involves large datasets </p>
+                        <p>Merchendise team can re-arrange these 5 dept to be placed side-by-side (other, alcohol, pets, household, personal care)</p>
+                        <p>Since almost all products that comes in pair are in the same departments, for each departments, put those pair products side-by-side (+ We can share these product pairs to the marketing team to promote 'Bundle sales' for all these pairs that has top10 highest lift-value)</p>
 
 
 
 
-
-
-                        <!-- p7 -->
+                        <!-- p4 -->
                         <h2 class="section-heading">Final words from Dwi</h2>
-                        <p>You can find the codes <a href="https://github.com/dwihdyn/ds-exploration/blob/main/p5/better-loops.ipynb">here</a>.</p>
-                        <p>Explore numpy more, and replace all for-loop to .apply() for good habit (and faster code)</p>
+                        <p>About the "Explore" part that we skipped, we'll cover how to explore data as this to get insight in our next article!</p>
+                        
+                        <p>It's too much to digest this topic in one article, hence why it only covers bare minimum & focus on call-to-action. For interested reader that want to fully digest this knowledge, head over to my code in my kaggle notebook  <a href="https://www.kaggle.com/dwihdyn/mkt-bskt-analysis">HERE</a> and leave a like on the notebook!</p>
+                        
 
         
                     </div>
