@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dwi - Digitalization Helper</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/d-logo.svg" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a href="../index.html"><img class="navbar-brand" src="../assets/img/d-logo.svg" alt="Dwi" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/posts/5-better-loop-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Improve your Looping Speed 649x Faster</h1>
+                            <h2 class="subheading">Given large dataset (million rows), how can we process these data faster than ever ?</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="../index.html">Dwi Hadyan Harsono</a>
+                                on July 17, 2021
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <blockquote class="blockquote">TLDR; we tried to take all of our competitor tweets to know what are they talking about. tried using wordcloud method, but its just too many stopwords, hence no value can be extracted from here. message me on linkeidn if you think ive missed anything.</blockquote>
+                        
+                        <!-- p1 -->
+                        <h2 class="section-heading">Scenario</h2>
+                        <p>Its Saturday morning as i am writing this, so i thought what you be better spend on than to explore some funky ideas we can explore. Initially here what i am trying to achieve is to 'snoop' what competitor are doing, by taking their tweets using twitter API, and create wordcloud to know what they talk about.</p>
+                        <p>Of course, we will be using OSEMN. so, let's begin</p>
+
+                        <!-- p2 -->
+                        <h2 class="section-heading">Obtain</h2>
+                        <p>We've obtained the data from twitter API. need to get the token first <a href="https://developer.twitter.com/en/docs/authentication/oauth-2-0/bearer-tokens#:~:text=Login%20to%20your%20Twitter%20account,Generate%22%20next%20to%20Bearer%20Token." >here</a>.</p>
+                        <img class="img-fluid" src="../assets/posts/3-wc-tw-obtain.jpg" alt="..." />
+                        <p>Firstly, you must know which part of data do you want to get from twitter (retweeets, like, tweets, etc), then you go to their github to get the code boilerplate <a href="https://github.com/twitterdev/Twitter-API-v2-sample-code">here</a> (thanks twitter devs!). We will be analysing few biggest retail players in indonesia. Ace, shopee, tokopedia, transmart by getting their raw tweets</p>
+
+                        <!-- p3 -->
+                        <h2 class="section-heading">Scrub</h2>
+                        <p>Remove any punctuations & stopwords that adds no value towards the tweet. indonesian stopword can be found <a href="https://github.com/dwihdyn/ds-exploration/blob/main/p3/data/stopwords-indo.txt">here</a>. and finally tokenise the tweets. </p>
+
+                        <!-- p4 -->
+                        <h2 class="section-heading">Explore</h2>
+                        <img class="img-fluid" src="../assets/posts/3-wc-tw-explore.png" alt="..." />
+                        <p>Have a quick overview on what's the data remains using quick wordcount. we noticed that most of remains are stopwords that makes a meaning only if its a sentence</p>
+
+                        <!-- p5 -->
+                        <h2 class="section-heading">Model</h2>
+                        <img class="img-fluid" src="../assets/posts/3-wc-tw-model.png" alt="..." />
+                        <p>Still out of curiousity, we still proceed to see wordcloud by using function 'wordcloud_generator' we created</p>
+
+                        <!-- p6 -->
+                        <h2 class="section-heading">iNterpret</h2>
+                        <ul>
+                            <li>As expected, it's true. All of the words left has meaning only if its set in complete sentences.</li>
+                            <li>I had the idea of "listen to your customers" to change the process entirely where user can type in product name, output all tweets about the products. (but issue is too 'noisy' as in, we search 'tupperware' on twitter, and will return jokes that uses the word tupperware & nothing on the tupperware product itself)</li>
+                        </ul>
+
+                        <!-- p7 -->
+                        <h2 class="section-heading">Final words from Dwi</h2>
+                        <p>You can find the codes <a href="https://github.com/dwihdyn/ds-exploration/blob/main/p3/d24a-twitter-api.ipynb">here</a>.</p>
+                        <p>Perhaps we can improve this by getting sentiment scores instead & rank them by sentiment from bad to good (to know competitor weakness ?). Stay tuned for second episode (jeng jeng jenggg)</p>
+
+        
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dwihdyn">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/dwi-hadyan-harsono-268009128/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.tilabs.id">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="far fa-building fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Dwi Hadyan Harsono</div>      
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
