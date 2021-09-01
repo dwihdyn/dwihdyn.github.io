@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dwi - Digitalization Helper</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/d-logo.svg" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a href="../index.html"><img class="navbar-brand" src="../assets/img/d-logo.svg" alt="Dwi" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/posts/7-retail-eda-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Simple Exploratory Data Analysis in Retail Industry</h1>
+                            <h2 class="subheading">Beginner-friendly & Straight-to-the-point on how to coduct EDA (Exploratory Data Analysis)</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="../index.html">Dwi Hadyan Harsono</a>
+                                on Sep 2, 2021
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <blockquote class="blockquote">TLDR; Input each customer orders that contains the products & from which departments, Output are 2 things, pair of products (and their departments) that happen to be bought together more often than random, hence we can recommend management to re-arrange these departments side-by-side & the product pair side-by-side too to unconsciously trigger customer impulsive buying.</blockquote>
+                        
+                        <br/>
+
+                        <!-- p0 -->
+                        <p>This article will be divided into 3 segments :</p>
+                        <ol>
+                            <li>Scenario : The problem statement</li>
+                            <li>Result : How are we tackling the problem ?</li>
+                            <li>Call-To-Action : What's the solution of the problem ?</li>
+                        </ol>
+
+                        <p>---------------------------</p>
+
+                        <p>Have you ever thought of going to supermarket, knowing that you just want to buy WHAT IS IN YOUR LIST, but ended up buying half of the supermarket?</p>
+                        <img class="img-fluid" src="../assets/posts/6-mba-retail-scenario1.png" alt="..." />
+                        <p>Yeah, welcome to Social Engineering 101 in retail, this trick has been implemented by the Data Scientist team in that retail company in order to maximise the unconscious impulsive buying.</p>
+
+                        <!-- p1 -->
+                        <h2 class="section-heading">Scenario</h2>
+                        
+                        
+                        
+                        <p>We are working in a supermarket retail industry, and management hand us 3 datasets. Below the sneak-peek of the data</p>
+                        <img class="img-fluid" src="../assets/posts/6-mba-retail-scenario2.png" alt="..." />
+                        <ul>
+                            <li>First is "orders_prod_prior", contains previous order contents for all customers.</li>
+                            <li>Second is "products", contain each of the product details that the company has.</li>
+                            <li>Third is "departments", contains all the departments that the company has.</li>
+                        </ul>
+
+                        <p>With given data above, we can answer these two important question in order to implement the social engineering:</p>
+                        <ol>
+                            <li>Given all past orders, which dept that always come together ?</li>
+                            <li>Once the dept known, which products to be specific on each od these dept are always bought together ?</li>
+                        </ol>
+                        <p>With those two questions answered, business can reorganize the store layout & run promotional campaign to bundle these item together.</p>
+
+
+
+      
+                        <!-- p2 -->
+                        <h2 class="section-heading">Result</h2>
+                        <p>Translating from those two business requirements to technical requirements, we can answer those questions by using <a href="https://towardsdatascience.com/a-gentle-introduction-on-market-basket-analysis-association-rules-fa4b986a40ce">Market Basket Analysis - Association Rule</a>.</p>
+                        <p>Oversimplifying it, what it does is that, with each order data that contains products that has been purchased, we can see the occurences of particular item A & B happen on every order. If its happen very often, we can conclude that these two products are come in pairs, and what management can do to encourage this to happen more is to put these two item side-by-side.</p>
+                        <p>Below is the simulation with the smaller dataset in order to understand "Associate Rules" intuitively</p>
+                        <img class="img-fluid" src="../assets/posts/6-mba-retail-result1.png" alt="..." />
+                        <p>With above example, we can put apple & egg side-by-side in order to trigger the customer impulsive buying. you can read in-depth analysis & its formal answers <a href="https://www.kaggle.com/datatheque/association-rules-mining-market-basket-analysis">here</a>.</p>
+                        <p>With that being said, let's solve this problem with our favourite OSEMN framework!</p>
+                        
+                        <br/>
+                        
+                        <ol>
+                            <!-- p2.1  -->
+                            <li>Obtain</li>                            
+                            <p>Data is given & shown sneak-peek in 'Scenario' section</p>
+                            <br/>
+
+                            <!-- p2.2  -->
+                            <li>Scrub</li>
+                            
+                            <p>Since we want to know two things (which depts are the best pairs, and which products are the best pairs), we just need to prepare two dataframes such that it is suitable for our 'Association Rule' derivation (which is order_id and item_id). Below are the sneak-peek of each of the dataframes.</p>
+
+                            <p>---------------------------</p>
+                            <p>Data Prep on : Finding which depts are the best pairs</p>
+                            <img class="img-fluid" src="../assets/posts/6-mba-retail-result2.png" alt="..." />
+                            <p>---------------------------</p>
+                            <p>Data Prep on : Finding which products are the best pairs</p>
+                            <img class="img-fluid" src="../assets/posts/6-mba-retail-result3.png" alt="..." />
+                            
+                            <p>To make things simple, we've created function to get Association Rule derivation, we rename both targeted column to item_id. (no more product_id or dept_id)</p>
+                            <br/>
+
+                            <!-- p2.3  -->
+                            <li>Explore</li>
+                            <p>We've skipped entirely this part, as deriving 'Association Rule' on 3 million+ rows dataset is computationally expensive (nearly consumed 16GB of RAM)</p>
+                            <img class="img-fluid" src="../assets/posts/6-mba-retail-result-explore-skip.jpg" alt="..." />
+                            <br/>
+
+                            <!-- p2.4  -->
+                            <br/>
+                            <li>Model</li>
+                            <p>This is the part where we implement the Association Rules function. You can check out the full code in <a href="https://www.kaggle.com/dwihdyn/mkt-bskt-analysis">my kaggle</a>, but oversimplifying it:</p>
+                            <ul>
+                                <li>What we want is to calculate each pair of items relationships (lift value). say we have item A & B.</li>
+                                <ul>
+                                    <li>if lift > 1, A & B occur together more often than random</li>
+                                    <li>if lift = 1, A & B occur together only by chance (random)</li>
+                                    <li>if lift < 1, A & B occur together less often than random</li>
+                                </ul>
+                                
+                                <li>Calculate lift(A,B) = Pr(A & B bought together) / (Pr(A bought) * Pr(B bought))</li>
+                                <ul>
+                                    <li>where Pr(A bought) : Probability item A is bought</li>
+                                </ul>
+                                
+                                <br/>
+                                <p>---------------------------</p>
+                                <li>Below is the result of best <b>department</b> pair & sort from highest lift value to lowest</li>
+                                <img class="img-fluid" src="../assets/posts/6-mba-retail-result4.png" alt="..." />
+
+                                <br/>
+                                <br/>
+                                <p>---------------------------</p>
+                                <li>And for <b>product</b> pairs</li>
+                                <img class="img-fluid" src="../assets/posts/6-mba-retail-result5.png" alt="..." />
+
+
+
+
+
+
+                            </ul>
+                            <br/>
+
+                            <!-- p2.5  -->
+                            <li>iNterpret</li>
+                            <ul>
+                                <li>From Department dataframe, we can ask the team to arrange: </li>
+                                <ul>
+                                    <li>"Personal Care" & "Household" together</li>
+                                    <li>"International" & "Canned Goods" & "Dry Goods Pasta" & "Meat Seafood" together</li>
+                                    <li>"Babies" placed between "Breakfast" & "Dry Goods Products" </li>
+
+                                </ul>
+
+
+                                <li>From Product dataframe: </li>
+                                <ul>
+                                    <li>Top association products were coming from the SAME ITEM FAMILY</li>
+                                    <ul>
+                                        <li>Banana & Organic Fuji Apple (Fruits Family)</li>
+                                        <li>Banana & Seedless Red Grapes (Fruits Family)</li>
+                                    </ul>
+
+                                    <li>This can be implemented in "Recommended system" backend. (eg if cust buy banana, recommend fuji apple, or red grapes)</li>
+                                </ul>
+                                
+                                <li>General solution that we can give to management ?</li>
+                                <ul>
+                                    <li>Get lift > 1 dept, and put dept rows side-by-side</li>
+                                    <li>For each items in dept, Get lift > 1 products, and put it together accordingly (and share these pairings to marketing team to create 'pair discount'</li>
+                                </ul>
+                            </ul>
+                            <br/>
+
+                        </ol>
+
+
+
+
+
+                        <!-- p3 -->
+                        <h2 class="section-heading">Call-To-Action</h2>
+                        <p>Merchendise team can re-arrange these 8 depts as per mentioned above in iNterpret</p>
+                        <p>Since almost all products that comes in pair are in the same departments, for each departments, put those pair products side-by-side.</p>
+                        <ul>
+                            <li>We can share these product pairs to the marketing team to promote 'Bundle sales' for all these pairs that has top10 highest lift-value</li>
+                        </ul>
+
+
+
+                        <!-- p4 -->
+                        <h2 class="section-heading">Final words from Dwi</h2>
+                        <p>About the "Explore" part that we skipped, we'll cover how to explore data as this to get insight in our next article!</p>
+                        
+                        <p>It's too much to digest this topic in one article, hence why it only covers bare minimum & focus on call-to-action. For interested reader that want to fully digest this knowledge, head over to my code in my kaggle notebook  <a href="https://www.kaggle.com/dwihdyn/mkt-bskt-analysis">HERE</a> and leave a like on the notebook!</p>
+                        
+
+        
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://github.com/dwihdyn">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/dwi-hadyan-harsono-268009128/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.tilabs.id">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="far fa-building fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Dwi Hadyan Harsono</div>      
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
