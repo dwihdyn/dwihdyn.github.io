@@ -1,369 +1,698 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-207389556-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-207389556-1"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      gtag("config", "UA-207389556-1");
+    </script>
 
-        gtag('config', 'UA-207389556-1');
-        </script>
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dwi - Digitalization Helper</title>
-        <link rel="icon" type="image/x-icon" href="../assets/img/d-logo.svg" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-
-
-
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a href="../index.html"><img class="navbar-brand" src="../assets/img/d-logo.svg" alt="Dwi" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
-                    </ul>
-                </div>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dwi - Digitalization Helper</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/d-logo.svg" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <a href="../index.html"
+          ><img class="navbar-brand" src="../assets/img/d-logo.svg" alt="Dwi"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Header-->
+    <header
+      class="masthead"
+      style="background-image: url('../assets/posts/2-cust-seg-bg.jpg')"
+    >
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="post-heading">
+              <h1>Unsupervised ML : Customer Segmentation</h1>
+              <h2 class="subheading">
+                How can we use Machine Learning to help companies understand
+                their customer better (and take data-driven decisions)
+              </h2>
+              <span class="meta">
+                Posted by
+                <a href="../index.html">Dwi Hadyan Harsono</a>
+                on Sept 22, 2021
+              </span>
             </div>
-        </nav>
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('../assets/posts/2-cust-seg-bg.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="post-heading">
-                            <h1>Unsupervised ML : Customer Segmentation</h1>
-                            <h2 class="subheading">How can we use Machine Learning to help companies understand their customer better (and take data-driven decisions)</h2>
-                            <span class="meta">
-                                Posted by
-                                <a href="../index.html">Dwi Hadyan Harsono</a>
-                                on Sept 22, 2021
-                            </span>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- p0 -->
+            <blockquote class="blockquote">
+              TLDR; Input list of customers data & their details, output the
+              group of customers that biggest number of customer in a certain
+              group (age, income, province), where we can recommend these group
+              of customers to the marketing team to aim our marketing efforts to
+              these interested customer of ours.
+            </blockquote>
+
+            <!-- p1 -->
+            <h2 class="section-heading">Scenario</h2>
+            <p>
+              The marketing manager has collected some basic data about our
+              customers such as Customer ID, age, gender, annual income,
+              province they live, which industry they work at, how do they know
+              us, and spending score. Spending Score is something you assign to
+              the customer based on your defined parameters like customer
+              behavior and purchasing data. They need our expertise to translate
+              these data into a data-driven actionable plan
+            </p>
+            <!-- p2 -->
+            <h2 class="section-heading">How?</h2>
+            <p>
+              Some ideas is that we can create a cluster of customers that each
+              has different profiles (different age, annual income, etc). From
+              there, we can get which cluster that has most customer in it, and
+              we can recommend the marketing team to focus marketize on these
+              people first
+            </p>
+            <p>
+              Such scenario, we can use K-Means Clustering method, which is one
+              of unsupervised machine learning method. Interested readers can
+              discover more
+              <a href="https://realpython.com/k-means-clustering-python/"
+                >HERE</a
+              >
+            </p>
+            <p>
+              How can we execute this ? for my frequent reader, you've guessed
+              it. we'll be using OSEMN framework on this!
+            </p>
+            <!-- p3 -->
+            <h2 class="section-heading">Obtain</h2>
+            <p>
+              Data given from the marketing & survey team, and thankfully
+              they've store it in csv format for us.
+            </p>
+            <img
+              class="img-fluid"
+              src="../assets/posts/2-cust-seg-obtain.jpeg"
+              alt="..."
+            />
+            <p>
+              Above the sneak-peek of the data. and to those that thinks that
+              you can achieve doing this analysis using excel, drop me a message
+              when the data given to you is 1 million rows. I always love to
+              learn new things! :)
+            </p>
+            <!-- p4 -->
+            <h2 class="section-heading">Scrub</h2>
+            <p>
+              Just ensure two things. No missing data & all data are numerical
+              format, as K-means (and any other ML models best) works on
+              numerical data only
+            </p>
+            <p>
+              As for non-numerical data like Province (Java, Kalimantan,..),
+              Industry (IT, Finance, ..) and How they know about us (FB ads,
+              Friends,...), since we are doing k-means clustering, it is
+              completely fine to assign each category to numerical direcly.
+            </p>
+            <p>
+              Do note that doing this approach in supervise learning will result
+              us allocating some provinces more important than other
+              unintentionally. Example, we set java : 3, kalimantan : 1, means
+              we saying java is 3x more significant than kalimantan for no
+              reason
+            </p>
+            <p>With that being said, let Province be converted to :</p>
+            <ul>
+              <li>java : 1</li>
+              <li>kalimantan : 2</li>
+              <li>sulawesi : 3</li>
+              <li>papua : 4</li>
+              <li>sulawesi : 5</li>
+            </ul>
+            <p>Industry be converted to :</p>
+            <ul>
+              <li>IT : 1</li>
+              <li>finance : 2</li>
+              <li>real estate : 3</li>
+              <li>education : 4</li>
+              <li>government : 5</li>
+            </ul>
+            <p>How you find us be converted to :</p>
+            <ul>
+              <li>instagram ads : 1</li>
+              <li>fb ads : 2</li>
+              <li>google ads : 3</li>
+              <li>egoogle search : 4</li>
+              <li>friends : 5</li>
+            </ul>
+            <!-- p5 -->
+            <h2 class="section-heading">Explore</h2>
+            <p>
+              Good practice before we enter to this stage is to know what are
+              the things that you trying to figure out that can be useful to our
+              endgoal (recommend which customer profile to focus on?) ?
+            </p>
+            <p>With that being said, we'll be covering 3 basic questions :</p>
+            <ol>
+              <li>We have more male or female ? (use countplot)</li>
+              <li>
+                What are the majority of the age, income & spending score each,
+                with respect to gender ? (use multiple swarmplot & violinplot
+              </li>
+              <li>
+                What are the relationship between each other variables ? (use
+                regplot, heatmap for advanced users)
+              </li>
+            </ol>
+            <p>
+              There's ALOT of undiscovered gems & insights here, so please do
+              use my examples as stepping stones in order for you to dig deeper
+            </p>
+            <p>Q1) We have more male or female ?</p>
+            <img
+              class="img-fluid"
+              src="../assets/posts/2-cust-seg-explore1.png"
+              alt="..."
+            />
+            <p>
+              A1) From countplot, we can see 112 (56%) are female, 88 (44%) are
+              male
+            </p>
+
+            <p>-----</p>
+
+            <p>
+              Q2) What are the majority of the age, income & spending score each
+              with respect to gender ?
+            </p>
+            <img
+              class="img-fluid"
+              src="../assets/posts/2-cust-seg-explore2.png"
+              alt="..."
+            />
+            <p>A2) From Violinplot & Swarmplot, we can see that :</p>
+            <ul>
+              <li>
+                majority for male, age 25-35, income 50-80, spending score 40-60
+              </li>
+              <li>
+                majority for female, age 25-35, income 50-80, spending score
+                40-60
+              </li>
+              <li>both m & f can be seen that :</li>
+              <ul>
+                <li>age reaches it peak at around 30, and decline slowly</li>
+                <li>
+                  income increase fast from 0 to 60, and 60 onwards decline even
+                  at faster exponential-like speed
+                </li>
+              </ul>
+              <li>spending score behavior:</li>
+              <ul>
+                <li>
+                  female increases consisteltly from 0 to 45, and decreases
+                  slower to the tail 100
+                </li>
+                <li>
+                  male had a good growth from 0 to 15, and stagnant from 15 to
+                  30, and growth same speed again from 30 to 50, and gradual
+                  consistent decline from peak 50 to 100
+                </li>
+              </ul>
+              <li>
+                none of the factors (age, income, spendingscore) has linear
+                relatioship as they increases (obvious for age, but not-so on
+                income & spendingScore. (maybe thet discover another better
+                luxury mall ?))
+              </li>
+            </ul>
+
+            <p>-----</p>
+
+            <p>Q3) What are the relationship between each other variables ?</p>
+            <img
+              class="img-fluid"
+              src="../assets/posts/2-cust-seg-explore3.png"
+              alt="..."
+            />
+            <p>A3) From Regression Plot :</p>
+            <ul>
+              <li>
+                none of the data between has any relationships between age,
+                income, spending
+              </li>
+              <li>
+                age & spendingscore has some weak relationship (older they get,
+                lessen their spendingscore become)
+              </li>
+              <li>
+                income & spendingscore have interesting relationship that
+                spendingScores stays at 50 during 40-60 income, and no
+                relationship at all at before 40 & after 60 income
+              </li>
+            </ul>
+
+            <p>
+              Even from Explore step, we can actually give a recommendation
+              already, where we can see on Q2, we can share those findings and
+              call it a day. And for the hardworking one, let's go to next step
+            </p>
+
+            <!-- p6 -->
+            <h2 class="section-heading">Model</h2>
+            <blockquote class="blockquote">
+              ....to be frank, you can immediately jump from 'Scrub' to here
+              immediately, if you're just interested in K-means, but its a bad
+              practice and can lead you building bad habit. (Explore part is
+              like eating vegetables, don't skip it!)
+            </blockquote>
+            <img
+              class="img-fluid"
+              src="../assets/posts/2-cust-seg-model1.jpg"
+              alt="..."
+            />
+            <p>
+              In short, there's only two parts. One is to find the most optimal
+              K (how many clusters that can covers the most with least distance
+              number (inertia)), and plot the result to find out which cluster
+              has the most data in it, where these cluster is the one we
+              recommend to the marketing team
+            </p>
+            <p>
+              And for finding optimal K, we will be using 'Elbow method'. You'll
+              find out soon why is it called elbow. (spoiler : i swear its
+              pretty lame)
+            </p>
+            <p>
+              For simplicity, we will be covering two K-means clustering. First
+              is with two variables, and Second with three variables
+            </p>
+            <p>1) Two variables (Age & Spending Score)</p>
+            <ul>
+              <li>Elbow plot</li>
+              <p>
+                We can see that after number 4 on the x-axis, the decrease
+                aren't much anymore, hence we take 4 as the K (no of clusters).
+                And you can see it yourself that the shape resembles like an
+                elbow, hence the name. hahahhelpmehahaha
+              </p>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-model2.png"
+                alt="..."
+              />
+              <li>Plot result</li>
+              <p>
+                We can see that with K=4, we can recommend to the marketing team
+                that we can focus marketize on age between 15 - 40, spending
+                score between 30-65 (the green area, as it has highest
+                dots-to-area ratio
+              </p>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-model3.png"
+                alt="..."
+              />
+            </ul>
+
+            <p>2) Three variables (Age & Annual Income & Provinces)</p>
+            <ul>
+              <li>Elbow plot</li>
+              <p>
+                We can see that after number 4 on the x-axis, the decrease
+                aren't much anymore, hence coincidentally for this, also K=4
+              </p>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-model4.png"
+                alt="..."
+              />
+              <li>Plot result</li>
+              <p>
+                I know, the chart is hella-funky. Bottom line is, we want to
+                know which cluster is the most dense. Hence we can count how
+                many are there using code, and result, is the first cluster with
+                73 variables.
+              </p>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-model5.png"
+                alt="..."
+              />
+              <p>
+                Now, we analyse deeper on first cluster, below the summary of
+                the data in cluster 1 & countplot of the province showing which
+                is the top province, shows that we can focus on
+                <u
+                  >age between 18-56, income between 54-88, province 1 & 3 (java
+                  and sulawesi)</u
+                >
+              </p>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-model7.png"
+                alt="..."
+              />
+              <br />
+              <br />
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-model6.png"
+                alt="..."
+              />
+            </ul>
+
+            <!-- p7 -->
+            <h2 class="section-heading">iNterpret</h2>
+            <p>Recommendation to be given to the Marketing Team :</p>
+            <ol>
+              <!-- 1st summary -->
+              <li>From swarm & violinplot (in explore) :</li>
+
+              <ul>
+                <li>
+                  majority for male, age 25-35, income 50-80, spending score
+                  40-60
+                </li>
+                <li>
+                  majority for female, age 25-35, income 50-80, spending score
+                  40-60
+                </li>
+                <li>both m & f can be seen that :</li>
+                <ul>
+                  <li>age reaches it peak at around 30, and decline slowly</li>
+                  <li>
+                    income increase fast from 0 to 60, and 60 onwards decline
+                    even at faster exponential-like speed
+                  </li>
+                </ul>
+
+                <li>spending score behavior:</li>
+                <ul>
+                  <li>
+                    female increases consisteltly from 0 to 45, and decreases
+                    slower to the tail 100
+                  </li>
+                  <li>
+                    male had a good growth from 0 to 15, and stagnant from 15 to
+                    30, and growth same speed again from 30 to 50, and gradual
+                    consistent decline from peak 50 to 100
+                  </li>
+                </ul>
+              </ul>
+
+              <br />
+              <!-- 2nd summary -->
+              <li>From 2d plot age vs spendingScore (in model) :</li>
+              <ul>
+                <li>age & spending : age 15-40, spending 30-65</li>
+                <li>
+                  you may discover better by looking other combo (2 options out
+                  of age, spending, income)
+                </li>
+                <li>
+                  now we get to the point and jump to finale, compare all 3 &
+                  recommend to management which group we should focus first
+                </li>
+              </ul>
+
+              <br />
+              <!-- 3rd summary -->
+              <li>From 3d plot age vs income vs province (in model) :</li>
+              <ul>
+                <li>
+                  focus on age between 18-56, income between 54-88, province 1 &
+                  3 (java and sulawesi)
+                </li>
+              </ul>
+
+              <br />
+              <!-- 4th summary -->
+              <li>How to Improve</li>
+              <ul>
+                <li>
+                  think of another dataset that can bring impact to this (city
+                  they come from, occupation, etc).
+                </li>
+                <li>
+                  in 'explore' section, use different charts to try find out
+                  which are the 3 columns you think that it will be most useful
+                  ?
+                </li>
+                <li>
+                  data science its just a tool, what matter most is your domain
+                  knowledge towards your business. with that, you will know the
+                  right question to ask, and get the right data to get to get
+                  best result
+                </li>
+              </ul>
+            </ol>
+
+            <!-- p8 -->
+            <h2 class="section-heading">Taking a Step Further</h2>
+            <p>
+              Let's introduce another variable "customer_frequency" which
+              represents, how frequent does the customer come to our shop and
+              made purchase. its a good feature as we can know from here on what
+              kind of customer we have that has come most frequently
+            </p>
+            <p>
+              Remember, OSEMN is not a linear process, its an iterative process.
+              meaning we might go back to one of the step again in order to
+              improve the model
+            </p>
+
+            <h4 class="section-heading">Proposed Solution</h4>
+            <p>
+              As our main question is "which group of people we should focus on
+              to reach out by our marketing team?", proposed solution is :
+            </p>
+
+            <p>
+              <b
+                >1) Add in "customer_frequency" data & make sure its clean
+                (Obtain & Scrub)</b
+              >
+            </p>
+            <ul>
+              <li>
+                For this example, we will be using dummy data, below is peek of
+                the data
+              </li>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-o1.png"
+                alt="..."
+              />
+            </ul>
+
+            <p>
+              <b
+                >2) Calculate mean of the "customer_freqency" feature & get data
+                that is above mean only (Explore)</b
+              >
+            </p>
+            <ul>
+              <li>From .describe(), we can see the mean is 9 (round down)</li>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-e1.png"
+                alt="..."
+              />
+            </ul>
+
+            <p>
+              <b
+                >3) Do k-means to get which cluster we should focus on
+                (Model)</b
+              >
+            </p>
+            <ul>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-m1.png"
+                alt="..."
+              />
+              <li>
+                We can see above that after number 6 on the x-axis, the decrease
+                aren't much anymore, hence K=6. and below is K-means plot with
+                K=6
+              </li>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-m2.png"
+                alt="..."
+              />
+              <li>
+                It does make sense too if we select two biggest cluster (not
+                one). And from calculating on how much data in each cluster, we
+                can see that cluster 3 & 4 is the most
+              </li>
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-m3.png"
+                alt="..."
+              />
+            </ul>
+
+            <p><b>4) Recommend result to marketing team (iNterpret)</b></p>
+            <ul>
+              <li>
+                With this result, we can recommend the marketing team that we
+                should focus on :
+              </li>
+              <ul>
+                <li>Age group between 19-52</li>
+                <li>Annual income between 15-88</li>
+                <li>Province 2 & 5 (Kalimantan & Sulawesi)</li>
+              </ul>
+
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-i1.png"
+                alt="..."
+              />
+              <img
+                class="img-fluid"
+                src="../assets/posts/2-cust-seg-imp-i2.png"
+                alt="..."
+              />
+            </ul>
+
+            <h2 class="section-heading">Final words from Dwi</h2>
+            <p>
+              On <i>how_you_find_us</i> and <i>industry</i> data were
+              intentionally not included, as it's for interested readers out
+              there that want to explore more on the capabilities of k-means
+              algo with more features
+            </p>
+            <p>
+              For those who scrolled to the end, Thanks for reading, and here's
+              a small gift from me, which is the
+              <a
+                href="https://github.com/dwihdyn/ds-exploration/blob/main/p5/mcs.ipynb"
+                >source code</a
+              >
+              of this project to play around! (Especially the 3D model part &
+              adding more features)
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- Footer-->
+    <footer class="border-top">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://github.com/dwihdyn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a
+                  href="https://www.linkedin.com/in/dwi-hadyan-harsono-268009128/"
+                >
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.tilabs.id">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="far fa-building fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="small text-center text-muted fst-italic">
+              Copyright &copy; Dwi Hadyan Harsono
             </div>
-        </header>
-        <!-- Post Content-->
-        <article class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <!-- p0 -->
-                        <blockquote class="blockquote">TLDR; Input list of customers data & their details, output the group of customers that biggest number of customer in a certain group (age, income, province), where we can recommend these group of customers to the marketing team to aim our marketing efforts to these interested customer of ours.</blockquote>
-
-                        <!-- p1 -->
-                        <h2 class="section-heading">Scenario</h2>
-                        <p>The marketing manager has collected some basic data about our customers such as Customer ID, age, gender, annual income, province they live, which industry they work at, how do they know us, and spending score. Spending Score is something you assign to the customer based on your defined parameters like customer behavior and purchasing data. They need our expertise to translate these data into a data-driven actionable plan</p>
-                        <!-- p2 -->
-                        <h2 class="section-heading">How?</h2>
-                        <p>Some ideas is that we can create a cluster of customers that each has different profiles (different age, annual income, etc). From there, we can get which cluster that has most customer in it, and we can recommend the marketing team to focus marketize on these people first</p>
-                        <p>Such scenario, we can use K-Means Clustering method, which is one of unsupervised machine learning method. Interested readers can discover more <a href='https://realpython.com/k-means-clustering-python/'>HERE</a></p>
-                        <p>How can we execute this ? for my frequent reader, you've guessed it. we'll be using OSEMN framework on this!</p>
-                        <!-- p3 -->
-                        <h2 class="section-heading">Obtain</h2>
-                        <p>Data given from the marketing & survey team, and thankfully they've store it in csv format for us. </p>
-                        <img class="img-fluid" src="../assets/posts/2-cust-seg-obtain.jpeg" alt="..." />
-                        <p>Above the sneak-peek of the data. and to those that thinks that you can achieve doing this analysis using excel, drop me a message when the data given to you is 1 million rows. I always love to learn new things! :)</p>
-                        <!-- p4 -->
-                        <h2 class="section-heading">Scrub</h2>
-                        <p>Just ensure two things. No missing data & all data are numerical format, as K-means (and any other ML models best) works on numerical data only</p>
-                        <p>As for non-numerical data like Province (Java, Kalimantan,..), Industry (IT, Finance, ..) and How they know about us (FB ads, Friends,...), since we are doing k-means clustering, it is completely fine to assign each category to numerical direcly. </p>
-                        <p>Do note that doing this approach in supervise learning will result us allocating some provinces more important than other unintentionally. Example, we set java : 3, kalimantan : 1, means we saying java is 3x more significant than kalimantan for no reason</p>
-                        <p>With that being said, let Province be converted to :</p>
-                        <ul>
-                            <li>java : 1</li>
-                            <li>kalimantan : 2</li>
-                            <li>sulawesi : 3</li>
-                            <li>papua : 4</li>
-                            <li>sulawesi : 5</li>
-                        </ul>
-                        <p>Industry be converted to :</p>
-                        <ul>
-                            <li>IT : 1</li>
-                            <li>finance : 2</li>
-                            <li>real estate : 3</li>
-                            <li>education : 4</li>
-                            <li>government : 5</li>
-                        </ul>
-                        <p>How you find us be converted to :</p>
-                        <ul>
-                            <li>instagram ads : 1</li>
-                            <li>fb ads : 2</li>
-                            <li>google ads : 3</li>
-                            <li>egoogle search : 4</li>
-                            <li>friends : 5</li>
-                        </ul>
-                        <!-- p5 -->
-                        <h2 class="section-heading">Explore</h2>
-                        <p>Good practice before we enter to this stage is to know what are the things that you trying to figure out that can be useful to our endgoal (recommend which customer profile to focus on?) ?</p>
-                        <p>With that being said, we'll be covering 3 basic questions :</p>
-                        <ol>
-                            <li>We have more male or female ? (use countplot)</li>
-                            <li>What are the majority of the age, income & spending score each, with respect to gender ? (use multiple swarmplot & violinplot</li>
-                            <li>What are the relationship between each other variables ? (use regplot, heatmap for advanced users)</li>
-                        </ol>
-                        <p>There's ALOT of undiscovered gems & insights here, so please do use my examples as stepping stones in order for you to dig deeper</p>
-                        <p>Q1) We have more male or female ?</p>
-                        <img class="img-fluid" src="../assets/posts/2-cust-seg-explore1.png" alt="..." />
-                        <p>A1) From countplot, we can see 112 (56%) are female, 88 (44%) are male </p>
-                        
-                        <p>-----</p>
-
-                        <p>Q2) What are the majority of the age, income & spending score each with respect to gender ?</p>
-                        <img class="img-fluid" src="../assets/posts/2-cust-seg-explore2.png" alt="..." />
-                        <p>A2) From Violinplot & Swarmplot, we can see that : </p>
-                        <ul>
-                        <li>majority for male, age 25-35, income 50-80, spending score 40-60</li>
-                        <li>majority for female, age 25-35, income 50-80, spending score 40-60</li>
-                        <li>both m & f can be seen that :</li>
-                        <ul>
-                            <li>age reaches it peak at around 30, and decline slowly</li>
-                            <li>income increase fast from 0 to 60, and 60 onwards decline even at faster exponential-like speed</li>
-                        </ul>
-                        <li>spending score behavior:</li>
-                        <ul>
-                            <li>female increases consisteltly from 0 to 45, and decreases slower to the tail 100</li>
-                            <li>male had a good growth from 0 to 15, and stagnant from 15 to 30, and growth same speed again from 30 to 50, and gradual consistent decline from peak 50 to 100</li>
-                        </ul>
-                        <li>none of the factors (age, income, spendingscore) has linear relatioship as they increases (obvious for age, but not-so on income & spendingScore. (maybe thet discover another better luxury mall ?))</li>
-                        </ul>
-
-                        <p>-----</p>
-
-                        <p>Q3) What are the relationship between each other variables ?</p>
-                        <img class="img-fluid" src="../assets/posts/2-cust-seg-explore3.png" alt="..." />
-                        <p>A3) From Regression Plot : </p>
-                        <ul>
-                        <li>none of the data between has any relationships between age, income, spending</li>
-                        <li>age & spendingscore has some weak relationship (older they get, lessen their spendingscore become)</li>
-                        <li>income & spendingscore have interesting relationship that spendingScores stays at 50 during 40-60 income, and no relationship at all at before 40 & after 60 income</li>
-                        </ul>
-
-                        <p>Even from Explore step, we can actually give a recommendation already, where we can see on Q2, we can share those findings and call it a day. And for the hardworking one, let's go to next step</p>
-                        
-                        <!-- p6 -->
-                        <h2 class="section-heading">Model</h2>
-                        <blockquote class="blockquote">....to be frank, you can immediately jump from 'Scrub' to here immediately, if you're just interested in K-means, but its a bad practice and can lead you building bad habit. (Explore part is like eating vegetables, don't skip it!)</blockquote>
-                        <img class="img-fluid" src="../assets/posts/2-cust-seg-model1.jpg" alt="..." />
-                        <p>In short, there's only two parts. One is to find the most optimal K (how many clusters that can covers the most with least distance number (inertia)), and plot the result to find out which cluster has the most data in it, where these cluster is the one we recommend to the marketing team</p>
-                        <p>And for finding optimal K, we will be using 'Elbow method'. You'll find out soon why is it called elbow. (spoiler : i swear its pretty lame)</p>
-                        <p>For simplicity, we will be covering two K-means clustering. First is with two variables, and Second with three variables </p>
-                        <p>1) Two variables (Age & Spending Score)</p>
-                        <ul>
-                            <li>Elbow plot</li>
-                            <p>We can see that after number 4 on the x-axis, the decrease aren't much anymore, hence we take 4 as the K (no of clusters). And you can see it yourself that the shape resembles like an elbow, hence the name. hahahhelpmehahaha  </p>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-model2.png" alt="..." />
-                            <li>Plot result</li>
-                            <p>We can see that with K=4, we can recommend to the marketing team that we can focus marketize on age between 15 - 40, spending score between 30-65 (the green area, as it has highest dots-to-area ratio</p>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-model3.png" alt="..." />
-                        </ul>
-
-                        <p>2) Three variables (Age & Annual Income & Provinces)</p>
-                        <ul>
-                            <li>Elbow plot</li>
-                            <p>We can see that after number 4 on the x-axis, the decrease aren't much anymore, hence coincidentally for this, also K=4</p>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-model4.png" alt="..." />
-                            <li>Plot result</li>
-                            <p>I know, the chart is hella-funky. Bottom line is, we want to know which cluster is the most dense. Hence we can count how many are there using code, and result, is the first cluster with 73 variables.</p>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-model5.png" alt="..." />
-                            <p>Now, we analyse deeper on first cluster, below the summary of the data in cluster 1 & countplot of the province showing which is the top province, shows that we can focus on <u>age between 18-56, income between 54-88, province 1 & 3 (java and sulawesi)</u></p>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-model7.png" alt="..." />
-                            <br/>
-                            <br/>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-model6.png" alt="..." />
-                        </ul>
-
-
-
-                        <!-- p7 -->
-                        <h2 class="section-heading">iNterpret</h2>
-                        <p>Recommendation to be given to the Marketing Team :</p>
-                        <ol>
-                            <!-- 1st summary -->
-                            <li> From swarm & violinplot (in explore) :</li>
-                            
-                            <ul>
-                                <li> majority for male, age 25-35, income 50-80, spending score 40-60</li>
-                                <li> majority for female, age 25-35, income 50-80, spending score 40-60</li>
-                                <li> both m & f can be seen that :</li>
-                                    <ul>
-                                        <li> age reaches it peak at around 30, and decline slowly</li>
-                                        <li> income increase fast from 0 to 60, and 60 onwards decline even at faster exponential-like speed</li>
-                                    </ul>
-                                
-                                <li> spending score behavior:</li>
-                                    <ul>
-                                        <li> female increases consisteltly from 0 to 45, and decreases slower to the tail 100 </li>
-                                        <li> male had a good growth from 0 to 15, and stagnant from 15 to 30, and growth same speed again from 30 to 50, and gradual consistent decline from peak 50 to 100</li>
-                                    </ul>
-                            </ul>
-
-                            <br/>
-                            <!-- 2nd summary -->
-                            <li> From 2d plot age vs spendingScore (in model) :</li>
-                            <ul>
-                                <li> age & spending : age 15-40, spending 30-65</li>
-                                <li> you may discover better by looking other combo (2 options out of age, spending, income)</li>
-                                <li> now we get to the point and jump to finale, compare all 3 & recommend to management which group we should focus first</li>    
-                            </ul>
-                            
-                            <br/>
-                            <!-- 3rd summary -->
-                            <li> From 3d plot age vs income vs province (in model) :</li>
-                            <ul>
-                                <li> focus on age between 18-56, income between 54-88, province 1 & 3 (java and sulawesi)</li>
-                            </ul>
-
-                            <br/>
-                            <!-- 4th summary -->
-                            <li> How to Improve</li>
-                            <ul>
-                                <li> think of another dataset that can bring impact to this (city they come from, occupation, etc).</li>
-                                <li> in 'explore' section, use different charts to try find out which are the 3 columns you think that it will be most useful ?</li>
-                                <li> data science its just a tool, what matter most is your domain knowledge towards your business. with that, you will know the right question to ask, and get the right data to get to get best result</li>    
-                            </ul>
-
-
-                        </ol>
-
-                        <!-- p8 -->
-                        <h2 class="section-heading">Taking a Step Further</h2>
-                        <p>Let's introduce another variable "customer_frequency" which represents, how frequent does the customer come to our shop and made purchase. its a good feature as we can know from here on what kind of customer we have that has come most frequently</p>
-                        <p>Remember, OSEMN is not a linear process, its an iterative process. meaning we might go back to one of the step again in order to improve the model</p>
-
-                        <h4 class="section-heading">Proposed Solution</h4>
-                        <p>As our main question is "which group of people we should focus on to reach out by our marketing team?", proposed solution is :</p>
-                       
-
-                        <p><b>1) Add in "customer_frequency" data & make sure its clean (Obtain & Scrub)</b></p>
-                        <ul>
-                            <li>For this example, we will be using dummy data, below is peek of the data</li>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-o1.png" alt="..." />
-                        </ul>
-
-
-                        <p><b>2) Calculate mean of the "customer_freqency" feature & get data that is above mean only (Explore)</b></p>
-                        <ul>
-                            <li>From .describe(), we can see the mean is 9 (round down)</li>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-e1.png" alt="..." />
-                        </ul>
-
-
-                        <p><b>3) Do k-means to get which cluster we should focus on (Model)</b></p>
-                        <ul>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-m1.png" alt="..." />
-                            <li>We can see above that after number 6 on the x-axis, the decrease aren't much anymore, hence K=6. and below is K-means plot with K=6</li>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-m2.png" alt="..." />
-                            <li>It does make sense too if we select two biggest cluster (not one). And from calculating on how much data in each cluster, we can see that cluster 3 & 4 is the most</li>
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-m3.png" alt="..." />
-                        </ul>
-
-                
-                        <p><b>4) Recommend result to marketing team (iNterpret)</b></p>
-                        <ul>
-                            <li>With this result, we can recommend the marketing team that we should focus on :</li>
-                            <ul>
-                                <li>Age group between 19-52</li>
-                                <li>Annual income between 15-88</li>
-                                <li>Province 2 & 5 (Kalimantan & Sulawesi)</li>
-                            </ul>
-                            
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-i1.png" alt="..." />
-                            <img class="img-fluid" src="../assets/posts/2-cust-seg-imp-i2.png" alt="..." />
-                        </ul>
-
-
-
-
-
-
-                        <h2 class="section-heading">Final words from Dwi</h2>
-                        <p>On <i>how_you_find_us</i> and <i>industry</i> data were intentionally not included, as it's for interested readers out there that want to explore more on the capabilities of k-means algo with more features</p>
-                        <p>For those who scrolled to the end, Thanks for reading, and here's the <a href="https://github.com/dwihdyn/ds-exploration/blob/main/p5/mcs.ipynb">source code</a> to play around! (Especially the 3D model part & adding more features)</p>
-
-
-
-
-
-                        
-
-
-                        
-                        
-                            
-                        
-                        
-                        
-
-
-
-         
-         
-                    </div>
-                </div>
-            </div>
-        </article>
-        <!-- Footer-->
-        <footer class="border-top">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item">
-                                <a href="https://github.com/dwihdyn">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.linkedin.com/in/dwi-hadyan-harsono-268009128/">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.tilabs.id">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="far fa-building fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Dwi Hadyan Harsono</div>      
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+  </body>
 </html>
